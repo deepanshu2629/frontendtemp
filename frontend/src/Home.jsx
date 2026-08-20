@@ -369,7 +369,7 @@ function App() {
       </div>
     )}
       <nav className="navbar">
-        <a className="brand" href="/">
+        <a className="brand" to="/">
           Scheme<span>Navigator</span>
         </a>
 
