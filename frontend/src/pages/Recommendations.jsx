@@ -16,8 +16,6 @@ function Recommendations() {
   const [detailsLoading, setDetailsLoading] = useState(false);
   const [detailsError, setDetailsError] = useState("");
 
-  const readinessScore =
-    location.state?.readinessScore ?? null;
 
   const finalVerdict =
     location.state?.finalVerdict ||
@@ -62,8 +60,14 @@ function Recommendations() {
       <div className="recommendations-header">
 
         <div>
+          <span>
+        <Link to="/" className="brand">
+  Scheme<span>Navigator</span>
+</Link> <br></br>
+      </span>
           <span className="section-number">
-            SCHEMENAV / RESULTS
+            <br></br>
+            RESULTS
           </span>
 
           <h1>
@@ -118,18 +122,6 @@ function Recommendations() {
           </p>
         </div>
 
-
-        {readinessScore !== null && (
-          <div className="summary-score">
-            <span>PROFILE READINESS</span>
-
-            <strong>
-              {readinessScore}
-              <small>/100</small>
-            </strong>
-          </div>
-        )}
-
       </section>
 
 
@@ -169,13 +161,7 @@ function Recommendations() {
                       "Government Scheme"}
                   </span>
 
-                  <span className="match-score">
-                    {scheme.overall_score ?? "--"}%
-                    <small>MATCH</small>
-                  </span>
-
                 </div>
-
 
                 <h3>
                   {scheme.scheme_name}

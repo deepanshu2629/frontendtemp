@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 import { getRecommendations } from "../services/api";
+import { Link } from "react-router-dom";
 
 const DEFAULT_PROFILE = {
   age: "",
@@ -76,13 +77,47 @@ navigate("/recommendations", {
   };
 
   return (
+    <>
+    {loading && (
+  <div className="scheme-loading-overlay">
+    <div className="scheme-loading-card">
+
+      <div className="scheme-loader"></div>
+
+      <span>ANALYSING</span>
+
+      <h2>
+        Finding schemes
+        <br />
+        that fit you.
+      </h2>
+
+      <p>
+        We're analysing your profile and matching
+        it with potentially relevant schemes.
+      </p>
+
+      <div className="loading-status">
+        <div>✓ Profile received</div>
+        <div>◌ Matching eligibility</div>
+        <div>◌ Finding relevant schemes</div>
+      </div>
+
+    </div>
+  </div>
+)}
   <main className="profile-page">
 
     {/* TOP INTRO */}
     <div className="profile-page-top">
   <div>
+    <span>
+        <Link to="/" className="brand">
+  Scheme<span>Navigator</span>
+</Link> <br></br>
+      </span>
     <span className="section-number">YOUR PROFILE</span>
-
+    <br></br>
     <h1>
       Tell us
       <br />
@@ -194,7 +229,7 @@ navigate("/recommendations", {
             </Field>
 
             <Field label="GENDER">
-              <select
+              <select className="profile-select"
                 value={profile.gender}
                 onChange={(e) =>
                   updateProfile("gender", e.target.value)
@@ -218,7 +253,7 @@ navigate("/recommendations", {
             </Field>
 
             <Field label="EMPLOYMENT STATUS">
-              <select
+              <select className="profile-select"
                 value={profile.employmentStatus}
                 onChange={(e) =>
                   updateProfile(
@@ -263,7 +298,7 @@ navigate("/recommendations", {
 
 
             <Field label="ZONE">
-                <select
+                <select className="profile-select"
                     value={profile.zone}
                     onChange={(e) =>
                     updateProfile("zone", e.target.value)
@@ -291,7 +326,7 @@ navigate("/recommendations", {
           <div className="form-grid">
 
             <Field label="CATEGORY">
-              <select
+              <select className="profile-select"
                 value={profile.category}
                 onChange={(e) =>
                   updateProfile("category", e.target.value)
@@ -321,7 +356,7 @@ navigate("/recommendations", {
             </Field>
 
             <Field label="BPL">
-              <select
+              <select className="profile-select"
                 value={profile.bpl}
                 onChange={(e) =>
                   updateProfile("bpl", e.target.value)
@@ -333,7 +368,7 @@ navigate("/recommendations", {
             </Field>
 
             <Field label="MINORITY">
-              <select
+              <select className="profile-select"
                 value={profile.minority}
                 onChange={(e) =>
                   updateProfile("minority", e.target.value)
@@ -345,7 +380,7 @@ navigate("/recommendations", {
             </Field>
 
             <Field label="DISABILITY">
-              <select
+              <select className="profile-select"
                 value={profile.disability}
                 onChange={(e) =>
                   updateProfile("disability", e.target.value)
@@ -392,7 +427,7 @@ navigate("/recommendations", {
     </div>
 
   </main>
-);
+</>);
 }
 
 function Field({ label, children }) {

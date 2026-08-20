@@ -49,6 +49,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [selectedScheme, setSelectedScheme] = useState(null);
+  const [searchLoading, setSearchLoading] = useState(false);
 
   const updateProfile = (key, value) => {
     setProfile((prev) => ({ ...prev, [key]: value }));
@@ -254,10 +255,17 @@ function App() {
   const handleManualSearch = (e) => {
   e?.preventDefault();
 
+  setSearchLoading(true);
+
   const query = search.trim().toLowerCase();
 
   if (!query) {
     setSearchResults([]);
+
+    setTimeout(() => {
+      setSearchLoading(false);
+    }, 900);
+
     return;
   }
 
@@ -320,15 +328,46 @@ function App() {
   );
 
   setTimeout(() => {
+    setSearchLoading(false);
+
     document.getElementById("schemes")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
-  }, 100);
+  }, 900);
 };
 
   return (
     <div className="app">
+       {searchLoading && (
+      <div className="scheme-loading-overlay">
+        <div className="scheme-loading-card">
+
+          <div className="scheme-loader"></div>
+
+          <span>SEARCHING</span>
+
+          <h2>
+            Finding relevant
+            <br />
+            schemes.
+          </h2>
+
+          <p>
+            Searching the scheme repository for
+            <br />
+            the support you need.
+          </p>
+
+          <div className="loading-status">
+            <div>✓ Search received</div>
+            <div>◌ Searching repository</div>
+            <div>◌ Finding relevant schemes</div>
+          </div>
+
+        </div>
+      </div>
+    )}
       <nav className="navbar">
         <a className="brand" href="/">
           Scheme<span>Navigator</span>
@@ -407,7 +446,7 @@ function App() {
 
             <div className="main-card">
               <div className="card-top">
-                <span className="mini-label">SCHEMENAV / 001</span>
+                <span className="mini-label">001</span>
                 <span className="verified">● READY</span>
               </div>
 
@@ -444,7 +483,7 @@ function App() {
         <section className="discover-section" id="discover">
           <div className="discover-top">
             <div>
-              <span className="section-number">04 / DISCOVER</span>
+              <span className="section-number">DISCOVER</span>
               <h2>Explore by<br />what you need.</h2>
             </div>
             <p>
@@ -461,7 +500,9 @@ function App() {
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Try education, jobs, housing..."
               />
-              <button type="submit">Search →</button>
+              <button type="submit" disabled={searchLoading}>
+                {searchLoading ? "Searching..." : "Search →"}
+              </button>
             </form>
           </div>
 
@@ -719,7 +760,7 @@ function App() {
 
         <section className="how-section">
           <div className="section-heading centered">
-            <span className="section-number">05 / HOW IT WORKS</span>
+            <span className="section-number">HOW IT WORKS</span>
             <h2>Simple in.<br />Clear out.</h2>
           </div>
 
@@ -747,7 +788,7 @@ function App() {
           </div>
 
           <div className="why-content">
-            <span className="section-number">06 / WHY US</span>
+            <span className="section-number">WHY US</span>
             <h2>Less searching.<br /><span>More direction.</span></h2>
             <p>
               Government benefits can be difficult to navigate when information
@@ -785,7 +826,7 @@ function App() {
 
         <section className="team-section" id="team">
           <div className="section-heading">
-            <span className="section-number">07 / THE TEAM</span>
+            <span className="section-number">THE TEAM</span>
             <h2>Five people.<br />One direction.</h2>
             <p>
               SchemeNavigator is built by a team working together on a simpler
@@ -806,9 +847,10 @@ function App() {
           </div>
         </section>
 
-        <section className="about-section" id="about">
+        <section className="about-section-custom" id="about">
           <div className="about-label">
-            <span>08</span> ABOUT
+            <span>ABOUT</span>
+             
           </div>
 
           <div className="about-content">
@@ -835,7 +877,7 @@ function App() {
 
         <section className="faq-section">
           <div className="section-heading centered">
-            <span className="section-number">09 / FAQ</span>
+            <span className="section-number">FAQ</span>
             <h2>Questions,<br />answered.</h2>
           </div>
 
@@ -885,7 +927,7 @@ function App() {
         </section>
 
         <section className="final-cta">
-          <span className="section-number">10 / START HERE</span>
+          <span className="section-number">START HERE</span>
           <h2>
             Your next opportunity
             <br />
