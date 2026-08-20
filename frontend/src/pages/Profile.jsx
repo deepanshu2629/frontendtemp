@@ -111,11 +111,10 @@ navigate("/recommendations", {
     {/* TOP INTRO */}
     <div className="profile-page-top">
   <div>
-    <span>
-        <Link to="/" className="brand">
+    <Link to="/" className="brand">
   Scheme<span>Navigator</span>
-</Link> <br></br>
-      </span>
+</Link>
+<br />
     <span className="section-number">YOUR PROFILE</span>
     <br></br>
     <h1>

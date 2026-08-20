@@ -56,25 +56,25 @@ function Recommendations() {
   return (
     <main className="recommendations-page">
 
-      {/* HEADER */}
-      <div className="recommendations-header">
+  {/* HEADER */}
+  <div className="recommendations-header">
 
-        <div>
-          <span>
-        <Link to="/" className="brand">
-  Scheme<span>Navigator</span>
-</Link> <br></br>
+    <div>
+      <Link to="/" className="brand">
+        Scheme<span>Navigator</span>
+      </Link>
+      <br />
+
+      <span className="section-number">
+        <br />
+        RESULTS
       </span>
-          <span className="section-number">
-            <br></br>
-            RESULTS
-          </span>
 
-          <h1>
-            Schemes that
-            <br />
-            <span>may fit you.</span>
-          </h1>
+      <h1>
+        Schemes that
+        <br />
+        <span>may fit you.</span>
+      </h1>
 
           <p className="recommendations-subtitle">
             Based on the information you provided, these

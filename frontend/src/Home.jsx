@@ -369,9 +369,9 @@ function App() {
       </div>
     )}
       <nav className="navbar">
-        <a className="brand" to="/">
-          Scheme<span>Navigator</span>
-        </a>
+  <Link className="brand" to="/">
+    Scheme<span>Navigator</span>
+  </Link>
 
         <div className="nav-links">
           <a href="#home">Home</a>

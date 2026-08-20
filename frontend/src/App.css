@@ -62,10 +62,16 @@ a {
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -1px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
 }
 
-.brand span { color: var(--accent); }
-
+.brand span {
+  color: var(--accent);
+}
 .nav-links {
   display: flex;
   gap: 34px;
