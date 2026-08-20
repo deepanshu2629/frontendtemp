@@ -446,7 +446,7 @@ function App() {
 
             <div className="main-card">
               <div className="card-top">
-                <span className="mini-label">001</span>
+                <span className="mini-label">SCHEMES</span>
                 <span className="verified">● READY</span>
               </div>
 
@@ -464,7 +464,7 @@ function App() {
                   <span>Potential match</span>
                   <strong>Education Support</strong>
                 </div>
-                <b>94%</b>
+                
               </div>
             </div>
 
@@ -826,24 +826,29 @@ function App() {
 
         <section className="team-section" id="team">
           <div className="section-heading">
-            <span className="section-number">THE TEAM</span>
+            <span className="section-number">THE TEAM - AI TITANS</span>
             <h2>Five people.<br />One direction.</h2>
             <p>
-              SchemeNavigator is built by a team working together on a simpler
-              way to discover public benefits.
+              AI Titans is the team behind SchemeNavigator, working together to make public benefits simpler to discover.
             </p>
           </div>
 
           <div className="team-grid">
-            {["Member 01", "Member 02", "Member 03", "Member 04", "Member 05"].map(
-              (member, index) => (
-                <div className="team-card" key={member}>
-                  <div className="avatar">0{index + 1}</div>
-                  <h3>{member}</h3>
-                  <p>SchemeNavigator team member</p>
+            {[
+              "Saurjendu Sahoo",
+              "Deepanshu",
+              "Divyansh Gupta",
+              "Simran",
+              "Khanak Chandel",
+            ].map((member) => (
+              <div className="team-card" key={member}>
+                <div className="avatar">
+                  {member}
                 </div>
-              )
-            )}
+
+                <p>AI TITANS</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -956,7 +961,7 @@ function App() {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 SchemeNavigator</span>
+          <span>SchemeNavigator © 2026 Built by AI Titans</span>
           <span>BUILT FOR BETTER DISCOVERY</span>
         </div>
       </footer>

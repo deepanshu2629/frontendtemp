@@ -223,22 +223,27 @@ navigate("/recommendations", {
                 placeholder="e.g. 18"
                 value={profile.age}
                 onChange={(e) =>
-                  updateProfile("age", e.target.value)
-                }
+                  updateProfile("age", e.target.value)}
+                
+                  onWheel={(e) => e.currentTarget.blur()}
+                  required
+                
               />
             </Field>
 
             <Field label="GENDER">
-              <select className="profile-select"
+              <select
+                className="profile-select"
                 value={profile.gender}
                 onChange={(e) =>
                   updateProfile("gender", e.target.value)
                 }
+                required
               >
-                <option>Prefer not to say</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
+                <option value="">Prefer not to say</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
               </select>
             </Field>
 
@@ -249,11 +254,13 @@ navigate("/recommendations", {
                 onChange={(e) =>
                   updateProfile("occupation", e.target.value)
                 }
+                required
               />
             </Field>
 
             <Field label="EMPLOYMENT STATUS">
-              <select className="profile-select"
+              <select
+                className="profile-select"
                 value={profile.employmentStatus}
                 onChange={(e) =>
                   updateProfile(
@@ -261,12 +268,14 @@ navigate("/recommendations", {
                     e.target.value
                   )
                 }
+                required
               >
-                <option>Student</option>
-                <option>Employed</option>
-                <option>Self-employed</option>
-                <option>Unemployed</option>
-                <option>Other</option>
+                <option value="">Select employment status</option>
+                <option value="Employed">Employed</option>
+                <option value="Student">Student</option>
+                <option value="Self-employed">Self-employed</option>
+                <option value="Unemployed">Unemployed</option>
+                <option value="Other">Other</option>
               </select>
             </Field>
 
@@ -293,6 +302,7 @@ navigate("/recommendations", {
                 onChange={(e) =>
                   updateProfile("state", e.target.value)
                 }
+                required
               />
             </Field>
 
@@ -303,6 +313,7 @@ navigate("/recommendations", {
                     onChange={(e) =>
                     updateProfile("zone", e.target.value)
                     }
+                    required
                     >
                     <option value="">Select zone</option>
                     <option value="North">North</option>
@@ -326,17 +337,20 @@ navigate("/recommendations", {
           <div className="form-grid">
 
             <Field label="CATEGORY">
-              <select className="profile-select"
+              <select
+                className="profile-select"
                 value={profile.category}
                 onChange={(e) =>
                   updateProfile("category", e.target.value)
                 }
+                required
               >
-                <option>General</option>
-                <option>OBC</option>
-                <option>SC</option>
-                <option>ST</option>
-                <option>EWS</option>
+                <option value="">Select category</option>
+                <option value="General">General</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="EWS">EWS</option>
               </select>
             </Field>
 
@@ -352,42 +366,53 @@ navigate("/recommendations", {
                     e.target.value
                   )
                 }
+                onWheel={(e) => e.currentTarget.blur()}
+                required
               />
             </Field>
 
             <Field label="BPL">
-              <select className="profile-select"
+              <select
+                className="profile-select"
                 value={profile.bpl}
                 onChange={(e) =>
                   updateProfile("bpl", e.target.value)
                 }
+                required
               >
-                <option>No</option>
-                <option>Yes</option>
+                <option value="">Select BPL status</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
               </select>
             </Field>
 
             <Field label="MINORITY">
-              <select className="profile-select"
+              <select
+                className="profile-select"
                 value={profile.minority}
                 onChange={(e) =>
                   updateProfile("minority", e.target.value)
                 }
+                required
               >
-                <option>No</option>
-                <option>Yes</option>
+                <option value="">Select minority status</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
               </select>
             </Field>
 
             <Field label="DISABILITY">
-              <select className="profile-select"
+              <select
+                className="profile-select"
                 value={profile.disability}
                 onChange={(e) =>
                   updateProfile("disability", e.target.value)
                 }
+                required
               >
-                <option>No</option>
-                <option>Yes</option>
+                <option value="">Select disability status</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
               </select>
             </Field>
 
